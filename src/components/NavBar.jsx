@@ -1,9 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
+import { AuthContext } from '../providers/AuthProvider';
 
 const NavBar = () => {
+    const {user , logOut} = useContext(AuthContext)
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .catch(error => console.log(error))
+    }
     return (
         <div className="navbar bg-slate-200">
             <div className="navbar-start">
@@ -34,7 +41,12 @@ const NavBar = () => {
                         <Link><FaUserCircle/></Link>
                     </div>
                 </label>
-                <Link to='/login'><button className="btn">Login</button></Link>
+                <div>
+                {user ? 
+                        <button onClick={handleLogOut} className="btn">Log Out</button>:
+                        <Link to='/login'><button className="btn">Login</button></Link>
+                    }
+                </div>
             </div>
         </div>
     );

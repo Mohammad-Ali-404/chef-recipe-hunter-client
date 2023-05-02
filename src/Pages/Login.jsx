@@ -1,8 +1,25 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext)
+    const handleLogin = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+
+        signIn(email, password)
+            .then(result =>{
+                const loggedUser = result.user;
+                console.log(loggedUser)
+            })
+            .catch(error => console.log(error))
+            
+    }
     return (
             <div className="hero bg-base-200">
                     <div className="hero-content flex-col ">
@@ -10,6 +27,7 @@ const Login = () => {
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form onSubmit={handleLogin}>
                     <div className="card-body">
                         <div className="form-control">
                         <label className="label">
@@ -21,7 +39,7 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="text" placeholder="password" name='password' className="input input-bordered" required/>
+                        <input type="password" placeholder="password" name='password' className="input input-bordered" required/>
                         <label className="label">
                             <p>New To Le Alimento Please <Link to='/register'><button className="btn btn-link">Register</button></Link></p>
                         </label>
@@ -36,6 +54,7 @@ const Login = () => {
                         <button className="btn btn-outline btn-accent  btn-block">Login With Github</button>
                         </div>
                     </div>
+                    </form>
                     </div>
                 </div>
             </div>
