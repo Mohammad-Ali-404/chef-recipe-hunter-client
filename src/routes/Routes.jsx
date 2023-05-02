@@ -4,11 +4,12 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Home from "../Pages/Shared/Home";
 import ChefRecpiesDetails from "../Pages/ChefRecpiesDetails";
+import PrivateRoute from "./PrivateRoute";
 
 /* eslint-disable no-unused-vars */
 const router = createBrowserRouter([
     {
-        path:'/',
+        path:'',
         element:<Main></Main>,
         children:[
             {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/chefrecpiesdata/:id',
-                element:<ChefRecpiesDetails></ChefRecpiesDetails>,
+                element:<PrivateRoute><ChefRecpiesDetails></ChefRecpiesDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/chefrecpiesdata/${params.id}`)
             }
 
