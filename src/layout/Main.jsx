@@ -10,7 +10,6 @@ const Main = () => {
         <div className=" bg-gray-300">
             <NavBar></NavBar>
             <Outlet></Outlet>
-            <Footer></Footer>
         </div>
     );
 };

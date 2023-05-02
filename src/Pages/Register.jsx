@@ -38,8 +38,15 @@ const Register = () => {
                                 <p>Already have an account Please <Link to='/login'><button className="btn btn-link">Login</button></Link></p>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control">
                         <button className="btn btn-primary">Register</button>
+                        </div>
+                        <h3 className='mx-auto'>Register with another account</h3>
+                        <div>
+                        <button className="btn btn-active btn-ghost">Button</button>
+                        <h3>Or</h3>
+                        <button className="btn btn-active btn-ghost">Button</button>
+
                         </div>
                     </div>
                     </div>
