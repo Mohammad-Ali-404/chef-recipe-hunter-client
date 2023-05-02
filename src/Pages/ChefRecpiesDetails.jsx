@@ -15,7 +15,7 @@ const ChefRecpiesDetails = () => {
         number_of_recipes, 
         likes,
         short_bio,
-
+        recipes
 
         } = chefrecpies;
 
@@ -35,6 +35,19 @@ const ChefRecpiesDetails = () => {
                     </div>
                 </div>
             </div>
+            <div className="card w-96 bg-neutral text-primary-content">
+                <div className="card-body">
+                    <h2 className="card-title">{recipes[1].recipe_name}</h2>
+                    <p>{recipes[1].ingredients.map((item, index) => <li key={index}>{item}</li>)}</p>
+                    <p className=''>{recipes[1].cooking_method}</p>
+                    <div className="card-actions justify-end">
+                    <button className="btn btn-active">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div>
+            
             </div>
         </div>
     );

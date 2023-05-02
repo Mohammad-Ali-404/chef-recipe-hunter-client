@@ -29,6 +29,12 @@ const Login = () => {
                         <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                         </div>
+                        <h3 className='mx-auto'>Register with another account</h3>
+                        <div>
+                        <button className="btn btn-outline btn-info btn-block ">Login With Google</button>
+                        <h3 className='text-center text-2xl font-semibold'>Or</h3>
+                        <button className="btn btn-outline btn-accent  btn-block">Login With Github</button>
+                        </div>
                     </div>
                     </div>
                 </div>

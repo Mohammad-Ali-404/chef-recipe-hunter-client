@@ -41,13 +41,6 @@ const Register = () => {
                         <div className="form-control">
                         <button className="btn btn-primary">Register</button>
                         </div>
-                        <h3 className='mx-auto'>Register with another account</h3>
-                        <div>
-                        <button className="btn btn-active btn-ghost">Button</button>
-                        <h3>Or</h3>
-                        <button className="btn btn-active btn-ghost">Button</button>
-
-                        </div>
                     </div>
                     </div>
                 </div>
