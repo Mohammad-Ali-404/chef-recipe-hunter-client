@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
+import { AuthContext, auth } from '../providers/AuthProvider';
+import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const {signIn, provider} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
@@ -23,6 +24,15 @@ const Login = () => {
             })
             .catch(error => console.log(error))
 
+    }
+    const handleGoogleLogin = () =>{
+        signInWithPopup(auth, provider)
+        .then(result =>{
+            const user = result.user;
+            navigate(from, {replace: true})
+
+        })
+        .catch(error =>console.log('error', error.message))
     }
     return (
             <div className="hero bg-base-200">
@@ -53,7 +63,7 @@ const Login = () => {
                         </div>
                         <h3 className='mx-auto'>Register with another account</h3>
                         <div>
-                        <button className="btn btn-outline btn-info btn-block ">Login With Google</button>
+                        <button onClick={handleGoogleLogin} className="btn btn-outline btn-info btn-block ">Login With Google</button>
                         <h3 className='text-center text-2xl font-semibold'>Or</h3>
                         <button className="btn btn-outline btn-accent  btn-block">Login With Github</button>
                         </div>
