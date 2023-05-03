@@ -20,8 +20,8 @@ const NavBar = () => {
                 </label>
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <Link to='/home'>Home</Link>
-                    <Link>Blog</Link>
-                    <Link>About Us</Link>
+                    <Link to='blog'>Blog</Link>
+                    {/* <Link>About Us</Link> */}
                 </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">Le Alimento</a>
@@ -30,15 +30,15 @@ const NavBar = () => {
                 <ul className="menu menu-horizontal px-1">
                     <li>
                     <Link>Home</Link>
-                    <Link>Blog</Link>
-                    <Link>About Us</Link>
+                    <Link to='blog'>Blog</Link>
+                    {/* <Link>About Us</Link> */}
                     </li>
                 </ul>
             </div>
             <div className="navbar-end">
                 <label tabIndex={0} style={{fontSize:35}}>
                     <div className="w-10 rounded-full">
-                        <Link><FaUserCircle/></Link>
+                        <FaUserCircle/>
                     </div>
                 </label>
                 <div>

@@ -6,7 +6,7 @@ import { signInWithPopup } from 'firebase/auth';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const {signIn, provider} = useContext(AuthContext)
+    const {signIn, provider, githubProvider} = useContext(AuthContext)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('');
     const navigate = useNavigate()
@@ -42,9 +42,17 @@ const Login = () => {
         .then(result =>{
             const loggedInUser = result.user;
             navigate(from, {replace: true})
-
         })
         .catch(error =>console.log('error', error.message))
+    }
+    const handleGithubLogin = () =>{
+        signInWithPopup(auth, githubProvider)
+        .then(result =>{
+            const githubUser = result.user;
+            console.log(githubUser)
+            navigate(from, {replace: true})
+        })
+        .catch(error => console.log('error', error.message))
     }
     return (
             <div className="hero bg-base-200">
@@ -79,7 +87,7 @@ const Login = () => {
                         <div>
                         <button onClick={handleGoogleLogin} className="btn btn-outline btn-info btn-block "><small className='text-2xl text-teal-950 mr-2'><FaGoogle/></small> Login With Google</button>
                         <h3 className='text-center text-2xl font-semibold'>Or</h3>
-                        <button className="btn btn-outline btn-accent  btn-block"><small className='mr-2 text-2xl text-blue-800'><FaGithub/></small> Login With Github</button>
+                        <button onClick={handleGithubLogin} className="btn btn-outline btn-accent  btn-block"><small className='mr-2 text-2xl text-blue-800'><FaGithub/></small> Login With Github</button>
                         </div>
                     </div>
                         

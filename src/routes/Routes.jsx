@@ -5,6 +5,7 @@ import Register from "../Pages/Register";
 import Home from "../Pages/Shared/Home";
 import ChefRecpiesDetails from "../Pages/ChefRecpiesDetails";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../Pages/Blog";
 
 /* eslint-disable no-unused-vars */
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path:'register',
                 element:<Register></Register>
+            },
+            {
+                path:'blog',
+                element:<Blog></Blog>
             },
             {
                 path:'/chefrecpiesdata/:id',

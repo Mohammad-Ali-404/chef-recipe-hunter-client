@@ -18,7 +18,8 @@ const ChefRecpiesDetails = () => {
         number_of_recipes, 
         likes,
         short_bio,
-        recipes
+        recipes,
+        recipe_name
 
         } = chefrecpies;
 
@@ -28,6 +29,11 @@ const ChefRecpiesDetails = () => {
         }
         const handleFavourite_2 = (event) =>{
             setFavourite_2(event.target.checked)    
+            toast("You Added Your Favourite Recpie")
+
+        }
+        const handleFavourite_3 = (event) =>{
+            setFavourite_3(event.target.checked)    
             toast("You Added Your Favourite Recpie")
 
         }
@@ -49,14 +55,26 @@ const ChefRecpiesDetails = () => {
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8'>
                 <div className="card w-96 bg-slate-700 text-primary-content">
                     <div className="card-body">
+                        <h2 className="card-title">{recipes[0].recipe_name}</h2>
+                        <h1 className='text-2xl font-bold '>Ingredients</h1>
+                        <p>{recipes[0].ingredients.map((item, index) => <li key={index}>{item}</li>)}</p>
+                        <h1 className='text-2xl font-bold '>Cooking Method</h1>
+                        <p className=''>{recipes[0].cooking_method}</p>
+                        <div className="card-actions justify-end">
+                        <button onClick={handleFavourite} disabled={!favourite} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
+                        <ToastContainer />
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-96 bg-indigo-600	text-primary-content">
+                    <div className="card-body">
                         <h2 className="card-title">{recipes[1].recipe_name}</h2>
                         <h1 className='text-2xl font-bold '>Ingredients</h1>
                         <p>{recipes[1].ingredients.map((item, index) => <li key={index}>{item}</li>)}</p>
                         <h1 className='text-2xl font-bold '>Cooking Method</h1>
                         <p className=''>{recipes[1].cooking_method}</p>
                         <div className="card-actions justify-end">
-                        <button onClick={handleFavourite} disabled={!favourite} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
-                        <ToastContainer />
+                        <button onClick={handleFavourite_2} disabled={!favourite_2} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
                         </div>
                     </div>
                 </div>
@@ -68,10 +86,11 @@ const ChefRecpiesDetails = () => {
                         <h1 className='text-2xl font-bold '>Cooking Method</h1>
                         <p className=''>{recipes[2].cooking_method}</p>
                         <div className="card-actions justify-end">
-                        <button onClick={handleFavourite_2} disabled={!favourite_2} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
+                        <button onClick={handleFavourite_3} disabled={!favourite_3} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
                         </div>
                     </div>
                 </div>
+                
             </div>
             </div>
             <div>

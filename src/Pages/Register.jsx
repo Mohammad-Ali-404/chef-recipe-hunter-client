@@ -13,9 +13,9 @@ const Register = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const photo = form.photo.value;
+        const photoURL = form.photoURL.value;
         const password = form.password.value;
-        console.log(name, email, photo, password)
+        console.log(name, email, photoURL, password)
         if(password.length < 6){
             setError('Please at least 6 characters in your password')
         }
@@ -30,6 +30,7 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             })
+            
        }
     return (
         <div className="hero bg-base-200">
@@ -57,7 +58,7 @@ const Register = () => {
                     <label className="label">
                             <span className="label-text">Photo URL</span>
                     </label>
-                    <input type="text" placeholder="Enter your photo" name='photo' className="input input-bordered" required/>
+                    <input type="text" placeholder="Enter your photo" name='photoURL' className="input input-bordered" required/>
                 </div>
                 <div className="form-control">
                         <label className="label">

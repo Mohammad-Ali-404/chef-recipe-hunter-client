@@ -8,6 +8,7 @@ import ChefCategory from './chefCategory';
 import Footer from './Footer';
 import { AuthContext } from '../../providers/AuthProvider';
 import WorkDetails from './WorkDetails';
+import TopUser from './TopUser';
 const Home = () => {
     return (
         <div className="mt-8">
@@ -15,7 +16,7 @@ const Home = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
                         <div className="carousel-item">
-                            <img src={banner1} className="rounded-box" />
+                            <img src={banner1} className="rounded-box"  />
                         </div> 
                         <div className="carousel-item">
                             <img src={banner2} className="rounded-box" />
@@ -41,6 +42,9 @@ const Home = () => {
             </div>
             <div>
                 <WorkDetails></WorkDetails>
+            </div>
+            <div>
+                <TopUser></TopUser>
             </div>
             <Footer></Footer>
         </div>

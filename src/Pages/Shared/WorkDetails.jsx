@@ -7,9 +7,9 @@ const WorkDetails = () => {
     return (
         <div className='ml-4 mr-4 mt-16'>
             <div >
-                <h1 className='text-center text-4xl font-bold'>Watch It Works</h1>
+                <h1 className='text-center text-4xl font-bold '>Watch It Works</h1>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8 border-solid border-2 border-gray-600 p-6'>
+            <div className='grid grid-cols-1 sm:grid-cols-3 rounded-lg gap-5 mt-8 border-solid border-2 border-gray-600 p-6'>
             <div className="card w-96 glass mb-16">
                 <figure><img src={chooseMeal} alt="car!"/></figure>
                 <div className="card-body">
