@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext, auth } from '../providers/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
@@ -7,6 +7,8 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const {signIn, provider} = useContext(AuthContext)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('');
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
@@ -16,12 +18,18 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+        if(password.length < 6){
+            setError('password must be 6 character long')
+            return
+        }
 
         signIn(email, password)
             .then(result =>{
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 navigate(from, {replace: true})
+                setSuccess('User login Successfuly')
+
             })
             .catch(error => console.log(error))
 
@@ -59,6 +67,8 @@ const Login = () => {
                             <p>New To Le Alimento Please <Link to='/register'><button className="btn btn-link">Register</button></Link></p>
                         </label>
                         </div>
+                            <p className='text-red-800'>{error}</p>
+                            <p className='text-green-600'>{success}</p>
                         <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                         </div>
@@ -69,6 +79,7 @@ const Login = () => {
                         <button className="btn btn-outline btn-accent  btn-block"><small className='mr-2 text-2xl text-blue-800'><FaGithub/></small> Login With Github</button>
                         </div>
                     </div>
+                        
                     </form>
                     </div>
                 </div>

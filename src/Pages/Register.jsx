@@ -1,23 +1,31 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Register = () => {
     const {createUser, updateProfile} = useContext(AuthContext)
-
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('');
     const handleRegister = event =>{
         event.preventDefault();
+        setSuccess('')
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
         console.log(name, email, photo, password)
+        if(password.length < 6){
+            setError('Please at least 6 characters in your password')
+        }
         createUser(email, password)
             .then(result =>{
                 const createdUser = result.user;
                 console.log(createdUser)
+                setError('');
+                event.target.reset();
+                setSuccess('User Created Successfuly')
             })
             .catch(error => {
                 console.log(error)
@@ -63,6 +71,8 @@ const Register = () => {
                 <div className="form-control">
                   <button className="btn btn-primary" type='submit'>Register</button>
                 </div>
+                <p className='text-red-800'>{error}</p>
+                <p className='text-green-600'>{success}</p>
             </div>
                 </form>
 
