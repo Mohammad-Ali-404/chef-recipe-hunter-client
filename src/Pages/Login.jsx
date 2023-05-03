@@ -31,13 +31,16 @@ const Login = () => {
                 setSuccess('User login Successfuly')
 
             })
-            .catch(error => console.log(error))
+            .catch(error =>{
+                 console.log(error)
+                 setError(error.message)
+            })
 
     }
     const handleGoogleLogin = () =>{
         signInWithPopup(auth, provider)
         .then(result =>{
-            const user = result.user;
+            const loggedInUser = result.user;
             navigate(from, {replace: true})
 
         })

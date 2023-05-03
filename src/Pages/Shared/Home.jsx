@@ -7,6 +7,7 @@ import banner4 from '../../../src/image/banner4.jpg'
 import ChefCategory from './chefCategory';
 import Footer from './Footer';
 import { AuthContext } from '../../providers/AuthProvider';
+import WorkDetails from './WorkDetails';
 const Home = () => {
     return (
         <div className="mt-8">
@@ -37,6 +38,9 @@ const Home = () => {
 
             <div>
                  <ChefCategory></ChefCategory>
+            </div>
+            <div>
+                <WorkDetails></WorkDetails>
             </div>
             <Footer></Footer>
         </div>
