@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext, auth } from '../providers/AuthProvider';
 import { signInWithPopup } from 'firebase/auth';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const {signIn, provider} = useContext(AuthContext)
@@ -63,9 +64,9 @@ const Login = () => {
                         </div>
                         <h3 className='mx-auto'>Register with another account</h3>
                         <div>
-                        <button onClick={handleGoogleLogin} className="btn btn-outline btn-info btn-block ">Login With Google</button>
+                        <button onClick={handleGoogleLogin} className="btn btn-outline btn-info btn-block "><small className='text-2xl text-teal-950 mr-2'><FaGoogle/></small> Login With Google</button>
                         <h3 className='text-center text-2xl font-semibold'>Or</h3>
-                        <button className="btn btn-outline btn-accent  btn-block">Login With Github</button>
+                        <button className="btn btn-outline btn-accent  btn-block"><small className='mr-2 text-2xl text-blue-800'><FaGithub/></small> Login With Github</button>
                         </div>
                     </div>
                     </form>
