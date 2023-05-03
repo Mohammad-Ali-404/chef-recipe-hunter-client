@@ -49,7 +49,6 @@ const Login = () => {
         signInWithPopup(auth, githubProvider)
         .then(result =>{
             const githubUser = result.user;
-            console.log(githubUser)
             navigate(from, {replace: true})
         })
         .catch(error => console.log('error', error.message))

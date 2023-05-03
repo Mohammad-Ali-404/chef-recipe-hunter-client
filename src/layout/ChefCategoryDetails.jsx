@@ -3,12 +3,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
+import LazyLoad from 'react-lazy-load';
 const ChefCategoryDetails = ({chef}) => {
     const {chef_id, chef_picture, chef_name, years_of_experience, number_of_recipes, likes} = chef;
     return (
         <div className='mx-auto w-96'>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img className='w-[100%] h-auto p-4 rounded-lg ' src={chef_picture} alt="chef" /></figure>
+                <figure>
+                    <LazyLoad height={300} width={350} threshold={0.95} onContentVisible={() => {console.log('loaded!')}}>
+                        <img src={chef_picture} className="rounded-box mt-4"/>
+                    </LazyLoad>
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold"><small>Name: </small>{chef_name}</h2>
                     <p className='tex-xl font-semibold'>Experience: {years_of_experience} Years</p>

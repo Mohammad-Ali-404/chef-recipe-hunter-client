@@ -9,6 +9,7 @@ import Footer from './Footer';
 import { AuthContext } from '../../providers/AuthProvider';
 import WorkDetails from './WorkDetails';
 import TopUser from './TopUser';
+import LazyLoad from 'react-lazy-load';
 const Home = () => {
     return (
         <div className="mt-8">
@@ -16,16 +17,24 @@ const Home = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
                         <div className="carousel-item">
-                            <img src={banner1} className="rounded-box"  />
+                        <LazyLoad height={270} width={420} threshold={0.95} onContentVisible={() => {('loaded!')}}>
+                            <img src={banner1} className="rounded-box"/>
+                        </LazyLoad>
                         </div> 
                         <div className="carousel-item">
-                            <img src={banner2} className="rounded-box" />
+                        <LazyLoad height={270} width={420} threshold={0.95} onContentVisible={() => {('loaded!')}}>
+                            <img src={banner2} className="rounded-box"/>
+                        </LazyLoad>
                         </div> 
                         <div className="carousel-item">
-                            <img src={banner3} className="rounded-box" />
+                        <LazyLoad height={270} width={420} threshold={0.95} onContentVisible={() => {('loaded!')}}>
+                            <img src={banner3} className="rounded-box"/>
+                        </LazyLoad>
                         </div> 
                         <div className="carousel-item">
-                            <img src={banner4} className="rounded-box" />
+                        <LazyLoad height={270} width={420} threshold={0.95} onContentVisible={() => {('loaded!')}}>
+                            <img src={banner4} className="rounded-box"/>
+                        </LazyLoad>
                         </div> 
                         </div>
                     <div>

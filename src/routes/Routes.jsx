@@ -6,12 +6,14 @@ import Home from "../Pages/Shared/Home";
 import ChefRecpiesDetails from "../Pages/ChefRecpiesDetails";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../Pages/Blog";
+import Error from "../Pages/Error";
 
 /* eslint-disable no-unused-vars */
 const router = createBrowserRouter([
     {
         path:'',
         element:<Main></Main>,
+        errorElement:<Error></Error>,
         children:[
             {
                 path:'/',
