@@ -5,6 +5,9 @@ import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+
 const ChefRecpiesDetails = () => {
     const chefrecpies = useLoaderData()
     const [favourite, setFavourite] = useState(true)
@@ -19,7 +22,6 @@ const ChefRecpiesDetails = () => {
         likes,
         short_bio,
         recipes,
-        recipe_name
 
         } = chefrecpies;
 
@@ -60,20 +62,24 @@ const ChefRecpiesDetails = () => {
                         <p>{recipes[0].ingredients.map((item, index) => <li key={index}>{item}</li>)}</p>
                         <h1 className='text-2xl font-bold '>Cooking Method</h1>
                         <p className=''>{recipes[0].cooking_method}</p>
-                        <div className="card-actions justify-end">
-                        <button onClick={handleFavourite} disabled={!favourite} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
+                        <div className="card-actions d-flex">
+                        <div>
+                        <Rating style={{ maxWidth: 180 }} value={recipes[0].rating}  readOnly/>
+                        </div>
+                            <button onClick={handleFavourite} disabled={!favourite} className="text-white btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button> 
                         <ToastContainer />
                         </div>
                     </div>
                 </div>
-                <div className="card w-96 bg-indigo-600	text-primary-content">
+                <div className="card w-96 bg-cyan-800	text-primary-content">
                     <div className="card-body">
                         <h2 className="card-title">{recipes[1].recipe_name}</h2>
                         <h1 className='text-2xl font-bold '>Ingredients</h1>
                         <p>{recipes[1].ingredients.map((item, index) => <li key={index}>{item}</li>)}</p>
                         <h1 className='text-2xl font-bold '>Cooking Method</h1>
                         <p className=''>{recipes[1].cooking_method}</p>
-                        <div className="card-actions justify-end">
+                        <div className="card-actions">
+                        <Rating style={{ maxWidth: 180 }} value={recipes[1].rating}  readOnly/>
                         <button onClick={handleFavourite_2} disabled={!favourite_2} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
                         </div>
                     </div>
@@ -85,7 +91,8 @@ const ChefRecpiesDetails = () => {
                         <p>{recipes[2].ingredients.map((item, index) => <li key={index}>{item}</li>)}</p>
                         <h1 className='text-2xl font-bold '>Cooking Method</h1>
                         <p className=''>{recipes[2].cooking_method}</p>
-                        <div className="card-actions justify-end">
+                        <div className="card-actions">
+                        <Rating style={{ maxWidth: 180 }} value={recipes[2].rating}  readOnly/>
                         <button onClick={handleFavourite_3} disabled={!favourite_3} className="btn btn-outline btn-accent">Favourite <small className='ml-2 text-2xl text-red-800'><AiOutlineHeart/></small></button>
                         </div>
                     </div>

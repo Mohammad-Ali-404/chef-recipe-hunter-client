@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from '../providers/AuthProvider';
+import ActiveLink from './ActiveLink/ActiveLink';
 
 const NavBar = () => {
     const {user , logOut} = useContext(AuthContext)
@@ -28,19 +29,26 @@ const NavBar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li>
-                    <Link>Home</Link>
-                    <Link to='blog'>Blog</Link>
+             
+                    {/* <ActiveLink>
+                       <li>
+                       <Link>Home</Link>
+                        <Link to='blog'>Blog</Link>
+                       </li>
+                    </ActiveLink> */}
+                    <ActiveLink to='/'>Home</ActiveLink>
+                    <ActiveLink to='/blog'>Blog</ActiveLink>
                     {/* <Link>About Us</Link> */}
-                    </li>
+  
                 </ul>
             </div>
             <div className="navbar-end">
-                <label tabIndex={0} style={{fontSize:35}}>
-                    <div className="w-10 rounded-full">
+                {user && <label tabIndex={0} style={{fontSize:35}}>
+                    {/* <div className="w-10 rounded-full">
                         <FaUserCircle/>
-                    </div>
-                </label>
+                    </div> */}
+                    <img src={user.photoURL} alt="" className='w-12 h-12 mr-4 rounded-full' />
+                </label>}
                 <div>
                 {user ? 
                         <button onClick={handleLogOut} className="btn">Log Out</button>:
