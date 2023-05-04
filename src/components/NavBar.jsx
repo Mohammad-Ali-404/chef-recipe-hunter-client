@@ -29,16 +29,12 @@ const NavBar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-             
-                    {/* <ActiveLink>
-                       <li>
-                       <Link>Home</Link>
-                        <Link to='blog'>Blog</Link>
-                       </li>
-                    </ActiveLink> */}
+    
+                    <li>
                     <ActiveLink to='/'>Home</ActiveLink>
-                    <ActiveLink to='/blog'>Blog</ActiveLink>
-                    {/* <Link>About Us</Link> */}
+                    <ActiveLink  to='/blog'>Blog</ActiveLink>
+                    </li>
+                   
   
                 </ul>
             </div>
