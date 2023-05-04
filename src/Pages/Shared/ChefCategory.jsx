@@ -7,7 +7,7 @@ const ChefCategory = () => {
     const [chefdata, setChefdata] = useState([])
     const [showAll, setShowAll] = useState(false)
     useEffect(() => {
-        fetch('http://localhost:5000/chefdata')
+        fetch('https://chef-recipe-hunter-server-wpmohammad1.vercel.app/chefdata')
         .then(res => res.json())
         .then(data => setChefdata(data))
         .catch(error => console.error(error))
